@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI оптимизатор профилей знакомств</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-purple-900 via-fuchsia-700 to-pink-600 text-white">
+  <div id="root"></div>
+  <script type="text/javascript">
+    const features = [
+      {
+        title: 'AI генерация био',
+        description: 'Персонализированные описания, подчеркивающие вашу уникальность.',
+        icon: (
+          React.createElement('svg', { className: 'w-10 h-10 text-pink-200', fill: 'none', stroke: 'currentColor', strokeWidth: '1.5', viewBox: '0 0 24 24' },
+            React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', d: 'M12 6v12m6-6H6' })
+          )
+        ),
+      },
+      {
+        title: '5 уникальных вариаций',
+        description: 'Легко меняйте тональность: дружелюбный, уверенный, забавный, серьёзный или дерзкий.',
+        icon: (
+          React.createElement('svg', { className: 'w-10 h-10 text-pink-200', fill: 'none', stroke: 'currentColor', strokeWidth: '1.5', viewBox: '0 0 24 24' },
+            React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', d: 'M9.75 9.75 12 12m0 0 2.25 2.25M12 12l2.25-2.25M12 12 9.75 14.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z' })
+          )
+        ),
+      },
+      {
+        title: 'Оптимизация под платформу',
+        description: 'Настраиваем под Tinder, Bumble, Hinge с пониманием тонкостей каждой.',
+        icon: (
+          React.createElement('svg', { className: 'w-10 h-10 text-pink-200', fill: 'none', stroke: 'currentColor', strokeWidth: '1.5', viewBox: '0 0 24 24' },
+            React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', d: 'M3.75 21h16.5M4.5 3h15m-1.5 18V3m-12 18V3M9 6h6M9 9h6M9 12h6M9 15h6M9 18h6' })
+          )
+        ),
+      },
+      {
+        title: 'Оценка фото и советы',
+        description: 'Авто-рейтинг 1–10 по качеству, приветливости и аутентичности.',
+        icon: (
+          React.createElement('svg', { className: 'w-10 h-10 text-pink-200', fill: 'none', stroke: 'currentColor', strokeWidth: '1.5', viewBox: '0 0 24 24' },
+            React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', d: 'M12 3l2.25 6.75H21l-5.5 4 2.25 6.75L12 16.5 6.25 20.5 8.5 13.75 3 9.75h6.75z' })
+          )
+        ),
+      },
+      {
+        title: 'Конкретные предложения по улучшению',
+        description: 'Чёткие рекомендации для фото, описаний и вопросов-вступлений.',
+        icon: (
+          React.createElement('svg', { className: 'w-10 h-10 text-pink-200', fill: 'none', stroke: 'currentColor', strokeWidth: '1.5', viewBox: '0 0 24 24' },
+            React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', d: 'M4.5 12.75 9 17.25l11-11' })
+          )
+        ),
+      },
+      {
+        title: 'Результаты за 60 секунд',
+        description: 'Готовые профили copy-paste без сложной настройки.',
+        icon: (
+          React.createElement('svg', { className: 'w-10 h-10 text-pink-200', fill: 'none', stroke: 'currentColor', strokeWidth: '1.5', viewBox: '0 0 24 24' },
+            React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', d: 'M12 6.75v4.5l3 1.5M21 12A9 9 0 113 12a9 9 0 0118 0z' })
+          )
+        ),
+      },
+    ];
+
+    const App = () => {
+      return (
+        React.createElement('div', { className: 'overflow-hidden' },
+          React.createElement('div', { className: 'relative px-6 sm:px-10 lg:px-16 py-12 lg:py-16' },
+            React.createElement('div', { className: 'absolute inset-0 opacity-30', style: { backgroundImage: 'radial-gradient(circle at 20% 20%, rgba(255,255,255,0.2), transparent 35%), radial-gradient(circle at 80% 0%, rgba(255,255,255,0.15), transparent 30%), radial-gradient(circle at 50% 80%, rgba(255,255,255,0.12), transparent 30%)' } }),
+            React.createElement('header', { className: 'relative max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-10' },
+              React.createElement('div', { className: 'flex-1 space-y-6 text-center lg:text-left' },
+                React.createElement('span', { className: 'inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium' },
+                  'AI оптимизация профилей',
+                  React.createElement('span', { className: 'h-2 w-2 rounded-full bg-emerald-300 animate-pulse' })
+                ),
+                React.createElement('h1', { className: 'text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight' },
+                  'Получи в 10 раз больше совпадений с AI-оптимизированными профилями знакомств'
+                ),
+                React.createElement('p', { className: 'text-lg sm:text-xl text-pink-50/90 max-w-2xl mx-auto lg:mx-0' },
+                  'Присоединись к 15,000+ одиноким людям, использующим AI для трансформации успеха в знакомствах за 60 секунд.'
+                ),
+                React.createElement('div', { className: 'flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center' },
+                  React.createElement('button', { className: 'px-6 py-3 rounded-xl bg-white text-purple-800 font-semibold shadow-lg hover:translate-y-[-1px] transition transform' },
+                    'Присоединиться к списку ожидания - Запуск февраль 2026'
+                  ),
+                  React.createElement('div', { className: 'flex items-center gap-3 text-sm text-pink-50/90' },
+                    React.createElement('div', { className: 'flex -space-x-2' },
+                      [1,2,3,4].map((i) => React.createElement('div', { key: i, className: 'w-8 h-8 rounded-full border-2 border-white/30 bg-white/30' }))
+                    ),
+                    'Средний рост совпадений: 3–10x'
+                  )
+                )
+              ),
+              React.createElement('div', { className: 'flex-1 w-full' },
+                React.createElement('div', { className: 'glass rounded-3xl p-6 sm:p-8 backdrop-blur relative overflow-hidden' },
+                  React.createElement('div', { className: 'absolute -right-10 -top-10 h-32 w-32 rounded-full bg-pink-500 opacity-30 blur-3xl' }),
+                  React.createElement('div', { className: 'absolute -left-16 bottom-0 h-32 w-32 rounded-full bg-indigo-400 opacity-30 blur-3xl' }),
+                  React.createElement('div', { className: 'relative space-y-4' },
+                    React.createElement('div', { className: 'flex items-center justify-between' },
+                      React.createElement('div', null,
+                        React.createElement('p', { className: 'text-sm text-pink-100/80' }, 'Предпросмотр профиля'),
+                        React.createElement('p', { className: 'text-xl font-semibold' }, '«Небольшая дерзость + тепло = больше ответов»')
+                      ),
+                      React.createElement('span', { className: 'px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium' }, 'AI рейтинг 9.3/10')
+                    ),
+                    React.createElement('div', { className: 'grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm' },
+                      React.createElement('div', { className: 'p-3 rounded-xl bg-white/5 border border-white/10' },
+                        React.createElement('p', { className: 'text-pink-100/80 mb-1' }, 'Ввод:'),
+                        React.createElement('p', { className: 'font-medium text-white' }, '«Обожаю кофе, утренние пробежки и острый юмор.»')
+                      ),
+                      React.createElement('div', { className: 'p-3 rounded-xl bg-white/5 border border-white/10' },
+                        React.createElement('p', { className: 'text-pink-100/80 mb-1' }, 'Выход:'),
+                        React.createElement('p', { className: 'font-medium text-white' }, '«Выбираю места с лучшим флэт уайт, шучу быстрее чем алгоритм, бегу на свидание за 15 минут.»')
+                      )
+                    ),
+                    React.createElement('div', { className: 'grid grid-cols-3 gap-3 text-xs sm:text-sm' },
+                      ['Качество фото 9/10', 'Приветливость 8/10', 'Аутентичность 9/10'].map((label) =>
+                        React.createElement('div', { key: label, className: 'p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between' },
+                          React.createElement('span', null, label),
+                          React.createElement('span', { className: 'w-2 h-2 rounded-full bg-emerald-300' })
+                        )
+                      )
+                    ),
+                    React.createElement('p', { className: 'text-pink-50/80 text-sm leading-relaxed' },
+                      'Подбираем тон, добавляем живость и даём точные подсказки по фото — готово к copy-paste за 60 секунд.'
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          React.createElement('section', { className: 'relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-14' },
+            React.createElement('div', { className: 'grid sm:grid-cols-2 lg:grid-cols-3 gap-6' },
+              features.map((feature) => (
+                React.createElement('div', { key: feature.title, className: 'glass rounded-2xl p-6 backdrop-blur text-left' },
+                  React.createElement('div', { className: 'flex items-center gap-4 mb-4' },
+                    React.cloneElement(feature.icon, { className: feature.icon.props.className + ' shrink-0' }),
+                    React.createElement('h3', { className: 'text-xl font-semibold' }, feature.title)
+                  ),
+                  React.createElement('p', { className: 'text-pink-50/90 text-sm leading-relaxed' }, feature.description)
+                )
+              ))
+            )
+          ),
+          React.createElement('section', { className: 'relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-12 grid lg:grid-cols-2 gap-10 items-center' },
+            React.createElement('div', { className: 'glass rounded-2xl p-6 sm:p-8 space-y-6' },
+              React.createElement('h2', { className: 'text-2xl sm:text-3xl font-semibold' }, 'Социальное доказательство'),
+              React.createElement('div', { className: 'space-y-4' },
+                React.createElement('div', { className: 'flex gap-3 items-start' },
+                  React.createElement('span', { className: 'text-3xl' }, '💬'),
+                  React.createElement('p', { className: 'text-pink-50/90' }, '«47% поколения Z уже используют AI для знакомств» — реальная статистика, которая подтверждает тренд.')
+                ),
+                React.createElement('div', { className: 'flex gap-3 items-start' },
+                  React.createElement('span', { className: 'text-3xl' }, '🚀'),
+                  React.createElement('p', { className: 'text-pink-50/90' }, 'Пользователи сообщают о 3-10x больше совпадений после внедрения AI подсказок.')
+                )
+              )
+            ),
+            React.createElement('div', { className: 'glass rounded-2xl p-6 sm:p-8 space-y-6' },
+              React.createElement('h2', { className: 'text-2xl sm:text-3xl font-semibold' }, 'Предпросмотр цены'),
+              React.createElement('div', { className: 'grid sm:grid-cols-2 gap-4' },
+                React.createElement('div', { className: 'rounded-xl bg-white text-purple-800 p-5 shadow-xl space-y-2' },
+                  React.createElement('p', { className: 'text-sm font-semibold text-purple-700' }, 'Разово'),
+                  React.createElement('p', { className: 'text-3xl font-bold' }, '$14.99'),
+                  React.createElement('p', { className: 'text-sm text-purple-700' }, 'Ограниченная скидка раннего доступа')
+                ),
+                React.createElement('div', { className: 'rounded-xl bg-white/10 border border-white/20 p-5 shadow-xl space-y-2' },
+                  React.createElement('p', { className: 'text-sm font-semibold text-pink-100' }, 'Подписка'),
+                  React.createElement('p', { className: 'text-3xl font-bold' }, '$9.99/мес'),
+                  React.createElement('p', { className: 'text-sm text-pink-50/80' }, 'Ограниченная скидка раннего доступа')
+                )
+              ),
+              React.createElement('div', { className: 'rounded-xl bg-white/5 border border-white/10 p-4 space-y-2 text-sm text-pink-50/90' },
+                React.createElement('p', { className: 'font-semibold text-white' }, 'Что внутри'),
+                React.createElement('ul', { className: 'space-y-1 list-disc list-inside' },
+                  ['AI био + 5 тонов', 'Советы по фото с рейтингом', 'Готовые ответы под платформы', 'Экспорт в один клик'].map(item =>
+                    React.createElement('li', { key: item }, item)
+                  )
+                )
+              )
+            )
+          ),
+          React.createElement('section', { className: 'relative max-w-4xl mx-auto px-6 sm:px-10 lg:px-16 py-12' },
+            React.createElement('div', { className: 'glass rounded-2xl p-6 sm:p-8 flex flex-col gap-6 items-center text-center' },
+              React.createElement('h2', { className: 'text-2xl sm:text-3xl font-semibold' }, 'Получите ранний доступ первым'),
+              React.createElement('p', { className: 'text-pink-50/90 max-w-2xl' }, 'Оставьте email — пришлём приглашение и подарим бонусный пакет подсказок по фото. Мы никогда не будем спамить.'),
+              React.createElement('form', { className: 'w-full flex flex-col sm:flex-row gap-3' },
+                React.createElement('input', { type: 'email', required: true, placeholder: 'Ваш email', className: 'flex-1 px-4 py-3 rounded-xl bg-white text-purple-900 placeholder-purple-400 focus:ring-2 focus:ring-pink-300 outline-none' }),
+                React.createElement('button', { type: 'submit', className: 'px-6 py-3 rounded-xl bg-purple-900 text-white font-semibold shadow-lg hover:bg-purple-800 transition' }, 'Получить ранний доступ')
+              ),
+              React.createElement('p', { className: 'text-xs text-pink-50/70' }, 'Мы никогда не будем спамить')
+            )
+          ),
+          React.createElement('footer', { className: 'border-t border-white/10 py-8 mt-4' },
+            React.createElement('div', { className: 'max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-pink-50/80' },
+              React.createElement('p', null, 'Сделано с ❤️ в Тбилиси'),
+              React.createElement('a', { href: 'mailto:hello@datingai.app', className: 'hover:text-white' }, 'hello@datingai.app')
+            )
+          )
+        )
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(React.createElement(App));
+  </script>
+</body>
+</html>
