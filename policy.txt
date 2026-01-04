@@ -1,0 +1,201 @@
+PRIVACY NOTICE
+
+Last updated: [January 4, 2026]
+
+This privacy notice for [Your Company Name / Your Name] (“Company,” “we,” “us,” or “our”) describes how and why we may collect, store, use, and/or share (“process”) your information when you use our services (“Services”), such as when you:
+	•	Download and use our mobile application [App Name] (the “App”), or any other application of ours that links to this privacy notice
+	•	Visit our website at [https://yourdomain.com] (if applicable)
+	•	Contact us for support
+
+Questions or concerns? If you do not agree with our policies and practices, please do not use our Services. If you still have questions, contact us at [support@yourdomain.com].
+
+⸻
+
+SUMMARY OF KEY POINTS
+
+What personal information do we process?
+We process (1) content you choose to submit for analysis (e.g., text you paste or screenshots/files you select), and (2) limited technical data (e.g., device/app info and diagnostics).
+
+Do we process any sensitive personal information?
+We do not intend to process sensitive personal information. However, what you upload may include sensitive details depending on your content. Please avoid uploading highly sensitive data.
+
+Do we receive any information from third parties?
+No.
+
+How do we process your information?
+To provide AI-based analysis and reply suggestions, to maintain app reliability and security, and to respond to support requests.
+
+Do we share personal information?
+We may share data with trusted service providers (cloud hosting and AI processing) only to operate the Services.
+
+How do we keep your information safe?
+We use reasonable safeguards, but no method is 100% secure.
+
+What are your rights?
+Depending on your location, you may have rights to access or delete your data. Contact us at [support@yourdomain.com].
+
+⸻
+
+TABLE OF CONTENTS
+	1.	WHAT INFORMATION DO WE COLLECT?
+	2.	HOW DO WE PROCESS YOUR INFORMATION?
+	3.	WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?
+	4.	WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?
+	5.	WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?
+	6.	DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?
+	7.	IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?
+	8.	HOW LONG DO WE KEEP YOUR INFORMATION?
+	9.	HOW DO WE KEEP YOUR INFORMATION SAFE?
+	10.	DO WE COLLECT INFORMATION FROM MINORS?
+	11.	USER-GENERATED CONTENT AND SENSITIVE INFORMATION
+	12.	CONTROLS FOR DO-NOT-TRACK FEATURES
+	13.	DO WE MAKE UPDATES TO THIS NOTICE?
+	14.	HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
+	15.	HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
+
+⸻
+
+1. WHAT INFORMATION DO WE COLLECT?
+
+A) Information you provide
+
+In Short: We collect information you choose to provide when using the App.
+
+This may include:
+	•	Text you submit for analysis (e.g., bio, chat text, prompts, language/tone preferences).
+	•	Images/files you select (e.g., chat screenshots, PDFs, TXT) only if you choose to upload them for analysis.
+	•	Support messages if you contact us (e.g., email address and the content of your request).
+
+B) Information collected automatically
+
+In Short: Some technical data is collected automatically for security and app reliability.
+
+This may include:
+	•	Device/App Data (device model, OS version, app version, language, time zone).
+	•	Identifiers (e.g., an app-generated device identifier such as device_id).
+	•	Log & Diagnostics Data (crash reports, performance data, error logs, timestamps).
+	•	Network Data such as IP address (or proxy/server info), typically visible to backend services.
+
+We do not intentionally collect precise GPS location. Any location inferred from IP is typically approximate (country/region) and used for security/analytics.
+
+⸻
+
+2. HOW DO WE PROCESS YOUR INFORMATION?
+
+We process information to:
+	•	Provide the Service (generate AI-based analysis and reply suggestions based on what you submit).
+	•	Maintain security and prevent abuse (rate limiting, fraud prevention, protecting infrastructure).
+	•	Improve reliability (debugging, crash diagnostics, performance monitoring).
+	•	Provide support (answering user requests).
+
+⸻
+
+3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?
+
+Where applicable (e.g., EEA/UK), we rely on:
+	•	Consent (when you choose to upload/submit content for analysis).
+	•	Performance of a contract (to deliver requested features).
+	•	Legitimate interests (security, service improvement, preventing abuse).
+	•	Legal obligations (if required by law).
+
+⸻
+
+4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?
+
+We may share information with:
+	•	Cloud hosting and storage providers (to run backend infrastructure).
+	•	AI processing providers (to generate analysis and reply suggestions).
+	•	Diagnostics providers (crash/performance reporting), if enabled.
+
+We share only what is necessary to operate the Service.
+We do not sell your personal information and we do not share it for third-party advertising.
+
+⸻
+
+5. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?
+
+The App may link to third-party websites (e.g., Terms/Privacy pages). We are not responsible for third-party privacy practices.
+
+⸻
+
+6. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?
+
+If you use our website, it may use cookies for basic functionality and analytics.
+The mobile App typically does not use browser cookies; it relies on device/app diagnostics and logs.
+
+⸻
+
+7. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?
+
+Your information may be processed in countries where our servers or service providers operate. We take reasonable steps to protect data during transfers.
+
+⸻
+
+8. HOW LONG DO WE KEEP YOUR INFORMATION?
+
+In Short: We keep data only as long as needed.
+
+Uploaded content for analysis (screenshots/files/text):
+	•	Not stored long-term. We process it to produce results and then delete it from our servers [immediately / within X hours / within X days].
+
+Generated results:
+	•	Stored locally on your device (e.g., in on-device storage) unless you explicitly send them again.
+
+Logs/diagnostics:
+	•	Retained for [e.g., 30 days] for security and reliability.
+
+Самый “Apple-friendly” вариант для v1: удаляем загрузки сразу после обработки (или “within 24 hours”).
+
+⸻
+
+9. HOW DO WE KEEP YOUR INFORMATION SAFE?
+
+We use reasonable safeguards such as encryption in transit (HTTPS), access controls, and monitoring. No method is 100% secure.
+
+⸻
+
+10. DO WE COLLECT INFORMATION FROM MINORS?
+
+The Services are not directed to children under 13 (or the minimum age required by local law). We do not knowingly collect personal data from children.
+
+⸻
+
+11. USER-GENERATED CONTENT AND SENSITIVE INFORMATION
+
+Your uploaded chats/screenshots may contain personal data about you or others. Please do not upload:
+	•	passwords, authentication codes
+	•	government IDs
+	•	full payment card details
+	•	medical records or other highly sensitive information
+
+If you upload third-party data, you confirm you have the right to share it for analysis.
+
+⸻
+
+12. CONTROLS FOR DO-NOT-TRACK FEATURES
+
+There is no consistent industry standard for Do-Not-Track signals. Where applicable on the website, we follow relevant rules, but the App does not respond to browser DNT signals.
+
+⸻
+
+13. DO WE MAKE UPDATES TO THIS NOTICE?
+
+Yes. We may update this notice from time to time and will update the “Last updated” date.
+
+⸻
+
+14. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
+
+Email: [support@yourdomain.com]
+Developer/Company: [Your Company Name]
+Address (optional): [Address]
+
+⸻
+
+15. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
+
+You can request access or deletion by emailing [support@yourdomain.com].
+To help us locate server-side data (if any), include:
+	•	App name
+	•	approximate upload time
+	•	your device_id (if shown in Settings → About)
