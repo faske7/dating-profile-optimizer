@@ -2,23 +2,232 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: rgba(17, 24, 39, 0.12);
+      --shadow: 0 14px 34px rgba(17, 24, 39, 0.10);
+      --radius: 16px;
+      --link: #2563eb;
+      --link-hover: #1d4ed8;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220;
+        --card: #0f172a;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --border: rgba(229, 231, 235, 0.14);
+        --shadow: 0 18px 48px rgba(0, 0, 0, 0.40);
+        --link: #60a5fa;
+        --link-hover: #93c5fd;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: color-mix(in oklab, var(--bg) 70%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar__inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      color: var(--text);
+    }
+
+    .topnav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .topnav a {
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+
+    .topnav a[aria-current="page"] {
+      color: var(--text);
+      background: color-mix(in oklab, var(--card) 70%, transparent);
+      border: 1px solid var(--border);
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 34px auto 64px;
+      padding: 0 20px;
+    }
+
+    .paper {
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 44px 46px;
+    }
+
+    @media (max-width: 640px) {
+      .paper { padding: 28px 20px; }
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3.5vw, 40px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      margin: 34px 0 10px;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    p { margin: 10px 0; }
+
+    .meta {
+      margin: 10px 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .toc {
+      margin: 22px 0 22px;
+      padding: 16px 16px 8px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--card) 85%, transparent);
+    }
+
+    .toc h2 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 20px;
+      columns: 2;
+      column-gap: 34px;
+    }
+
+    .toc li { break-inside: avoid; margin: 6px 0; }
+
+    @media (max-width: 760px) {
+      .toc ol { columns: 1; }
+    }
+
+    ul, ol { padding-left: 22px; }
+    li { margin: 6px 0; }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95em;
+      background: color-mix(in oklab, var(--card) 80%, transparent);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 8px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media print {
+      .topbar { display: none; }
+      body { background: #fff; color: #000; }
+      .page { margin: 0; padding: 0; }
+      .paper { box-shadow: none; border: none; border-radius: 0; padding: 0; }
+      a { color: #000; text-decoration: underline; }
+    }
+  </style>
   <title>Terms and Conditions — FASSS</title>
 </head>
 <body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="/">FASSS</a>
+      <nav class="topnav">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms" aria-current="page">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <article class="paper">
   <h1>Terms and Conditions</h1>
-  <p><strong>Last updated:</strong> January 5, 2026</p>
+  <p class="meta"><strong>Last updated:</strong> January 5, 2026</p>
 
   <h2>Agreement to These Terms</h2>
   <p>
     These Terms and Conditions ("Terms") are a legally binding agreement between you ("you") and
     [Your Full Legal Name] ("we," "us," "our"), an individual acting as the owner of the FASSS application
-    (the "App"), our website [https://fass.best] (the "Site," if applicable), and any related services
+    (the "App"), our website <a href="https://fass.best">https://fass.best</a> (the "Site," if applicable), and any related services
     that link to these Terms (collectively, the "Services").
   </p>
 
   <h3>Contact</h3>
   <p>
-    Email: [support@fass.best]<br>
+    Email: <a href="mailto:support@fass.best">support@fass.best</a><br>
   </p>
 
   <p>
@@ -37,29 +246,31 @@
     the Services.
   </p>
 
-  <h2>Table of Contents</h2>
-  <ol>
-    <li>The Services</li>
-    <li>AI Features — Important Notice</li>
-    <li>Accounts &amp; Security</li>
-    <li>Intellectual Property</li>
-    <li>User Content &amp; Library Storage</li>
-    <li>Acceptable Use &amp; Prohibited Conduct</li>
-    <li>Third-Party Services</li>
-    <li>Mobile App License</li>
-    <li>Payments (Currently Not Offered)</li>
-    <li>Termination</li>
-    <li>Changes &amp; Availability</li>
-    <li>Privacy</li>
-    <li>Disclaimers</li>
-    <li>Limitation of Liability</li>
-    <li>Indemnification</li>
-    <li>Governing Law &amp; Disputes</li>
-    <li>Miscellaneous</li>
-    <li>Contact Us</li>
-  </ol>
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#services">1. The Services</a></li>
+      <li><a href="#ai">2. AI Features — Important Notice</a></li>
+      <li><a href="#accounts">3. Accounts &amp; Security</a></li>
+      <li><a href="#ip">4. Intellectual Property</a></li>
+      <li><a href="#user-content">5. User Content &amp; Library Storage</a></li>
+      <li><a href="#acceptable-use">6. Acceptable Use &amp; Prohibited Conduct</a></li>
+      <li><a href="#third-party">7. Third-Party Services</a></li>
+      <li><a href="#license">8. Mobile App License</a></li>
+      <li><a href="#payments">9. Payments (Currently Not Offered)</a></li>
+      <li><a href="#termination">10. Termination</a></li>
+      <li><a href="#changes">11. Changes &amp; Availability</a></li>
+      <li><a href="#privacy">12. Privacy</a></li>
+      <li><a href="#disclaimers">13. Disclaimers</a></li>
+      <li><a href="#liability">14. Limitation of Liability</a></li>
+      <li><a href="#indemnification">15. Indemnification</a></li>
+      <li><a href="#law">16. Governing Law &amp; Disputes</a></li>
+      <li><a href="#misc">17. Miscellaneous</a></li>
+      <li><a href="#contact">18. Contact Us</a></li>
+    </ol>
+  </nav>
 
-  <h2>1. The Services</h2>
+  <h2 id="services">1. The Services</h2>
   <p>
     FASSS is a dating conversation optimizer. The App can generate reply suggestions and analysis based on
     content you choose to provide, such as chat text, screenshots, and profile/bio text.
@@ -69,7 +280,7 @@
     the App.
   </p>
 
-  <h2>2. AI Features — Important Notice</h2>
+  <h2 id="ai">2. AI Features — Important Notice</h2>
   <p>
     The App uses automated systems to generate suggestions. AI outputs may be inaccurate, incomplete, or
     inappropriate for your specific situation.
@@ -81,7 +292,7 @@
   </ul>
   <p>If you are in danger or facing an emergency, do not rely on the App.</p>
 
-  <h2>3. Accounts &amp; Security</h2>
+  <h2 id="accounts">3. Accounts &amp; Security</h2>
   <p>If the App uses accounts, device identifiers, or sign-in methods:</p>
   <ul>
     <li>You are responsible for maintaining the security of your device and account access.</li>
@@ -92,7 +303,7 @@
     We may suspend or restrict access if we reasonably believe there is misuse, fraud, or a security risk.
   </p>
 
-  <h2>4. Intellectual Property</h2>
+  <h2 id="ip">4. Intellectual Property</h2>
   <p>
     We (or our licensors) own all rights in the Services, including the App software, branding, design, and all
     content provided by us (“Our Content”). You may not copy, modify, distribute, sell, or exploit the Services
@@ -103,7 +314,7 @@
     personal, non-commercial use, as long as you comply with these Terms.
   </p>
 
-  <h2>5. User Content &amp; Library Storage</h2>
+  <h2 id="user-content">5. User Content &amp; Library Storage</h2>
 
   <h3>5.1 What you can submit</h3>
   <p>
@@ -143,7 +354,7 @@
     risk.
   </p>
 
-  <h2>6. Acceptable Use &amp; Prohibited Conduct</h2>
+  <h2 id="acceptable-use">6. Acceptable Use &amp; Prohibited Conduct</h2>
   <p>You agree not to:</p>
   <ul>
     <li>use the Services for illegal activities or to harm others;</li>
@@ -156,14 +367,14 @@
   </ul>
   <p>We may investigate violations and suspend or terminate access.</p>
 
-  <h2>7. Third-Party Services</h2>
+  <h2 id="third-party">7. Third-Party Services</h2>
   <p>
     The App may depend on third-party providers (e.g., hosting, analytics, AI processing). We are not
     responsible for third-party services outside our control. Your use of them may be governed by their own
     terms and policies.
   </p>
 
-  <h2>8. Mobile App License</h2>
+  <h2 id="license">8. Mobile App License</h2>
   <p>
     We grant you a limited license to install and use the App on devices you own or control, solely for
     personal use and in accordance with these Terms and applicable app store rules.
@@ -178,13 +389,13 @@
     If you obtained the App through Apple App Store or Google Play, you must also follow their terms.
   </p>
 
-  <h2>9. Payments (Currently Not Offered)</h2>
+  <h2 id="payments">9. Payments (Currently Not Offered)</h2>
   <p>
     At this time, the Services are provided without subscriptions or paid plans. If we introduce paid features
     in the future, we will update these Terms and provide pricing details in the App.
   </p>
 
-  <h2>10. Termination</h2>
+  <h2 id="termination">10. Termination</h2>
   <p>
     We may suspend or terminate access if you violate these Terms, if required by law, or to protect the
     Services, users, or third parties. You may stop using the Services at any time.
@@ -194,18 +405,18 @@
     liability, indemnification, disputes) will continue to apply.
   </p>
 
-  <h2>11. Changes &amp; Availability</h2>
+  <h2 id="changes">11. Changes &amp; Availability</h2>
   <p>
     We may change or discontinue parts of the Services at any time. We do not guarantee uninterrupted
     availability. Maintenance, outages, or technical issues may occur.
   </p>
 
-  <h2>12. Privacy</h2>
+  <h2 id="privacy">12. Privacy</h2>
   <p>
-    Your use of the Services is governed by our Privacy Policy: <a href="https://fass.best/privacy">https://fass.best/privacy</a>.
+    Your use of the Services is governed by our <a href="/privacy">Privacy Policy</a>.
   </p>
 
-  <h2>13. Disclaimers</h2>
+  <h2 id="disclaimers">13. Disclaimers</h2>
   <p><strong>THE SERVICES ARE PROVIDED “AS IS” AND “AS AVAILABLE.”</strong></p>
   <p>
     TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING IMPLIED WARRANTIES OF
@@ -215,7 +426,7 @@
     We do not guarantee that AI-generated suggestions are correct, safe, or suitable for your situation.
   </p>
 
-  <h2>14. Limitation of Liability</h2>
+  <h2 id="liability">14. Limitation of Liability</h2>
   <p>
     TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE WILL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, CONSEQUENTIAL,
     SPECIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, DATA, OR GOODWILL, ARISING FROM OR
@@ -228,7 +439,7 @@
   </p>
   <p>Some jurisdictions do not allow certain limitations, so some of these limits may not apply to you.</p>
 
-  <h2>15. Indemnification</h2>
+  <h2 id="indemnification">15. Indemnification</h2>
   <p>
     You agree to defend, indemnify, and hold us harmless from claims, damages, losses, and expenses
     (including reasonable legal fees) arising out of:
@@ -240,16 +451,16 @@
     <li>your violation of laws or third-party rights.</li>
   </ul>
 
-  <h2>16. Governing Law &amp; Disputes</h2>
+  <h2 id="law">16. Governing Law &amp; Disputes</h2>
   <p>
     These Terms are governed by the laws of Thailand, without regard to conflict-of-law rules.
   </p>
   <p>
     Any dispute arising from these Terms or the Services will be resolved exclusively in the courts located in
-    [Your city/country], unless mandatory law provides otherwise.
+    Thailand, unless mandatory law provides otherwise.
   </p>
 
-  <h2>17. Miscellaneous</h2>
+  <h2 id="misc">17. Miscellaneous</h2>
   <p>
     If any part of these Terms is found unenforceable, the remaining parts remain in effect. These Terms are
     the entire agreement between you and us regarding the Services.
@@ -259,11 +470,15 @@
     prior written consent.
   </p>
 
-  <h2>18. Contact Us</h2>
+  <h2 id="contact">18. Contact Us</h2>
   <p>
     If you have questions about these Terms, contact:<br>
     Aleksandr Fedin<br>
-    Email: [support@fass.best]<br>
+    Email: <a href="mailto:support@fass.best">support@fass.best</a><br>
   </p>
+    </article>
+    <p class="footer">If you want a copy of these Terms for your records, you can print this page or save it as a PDF.</p>
+  </main>
 </body>
+</html>
 </html>

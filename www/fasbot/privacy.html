@@ -3,271 +3,469 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Notice</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Privacy Notice — FASSS</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --paper: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: rgba(17, 24, 39, 0.12);
+      --shadow: 0 10px 30px rgba(17, 24, 39, 0.10);
+      --radius: 16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { opacity: 0.85; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(246, 247, 251, 0.85);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      text-decoration: none;
+    }
+    .toplinks {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .toplinks a { text-decoration: none; }
+    .toplinks a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 0 18px 40px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .paper {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 28px 28px;
+      overflow: hidden;
+    }
+
+    .meta {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.15; letter-spacing: -0.02em; }
+    h2 { margin: 28px 0 10px; font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; }
+    h3 { margin: 18px 0 8px; font-size: 16px; line-height: 1.3; }
+
+    p { margin: 10px 0; }
+    ul, ol { margin: 10px 0 10px 22px; padding: 0; }
+    li { margin: 6px 0; }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 22px 0;
+    }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.95em;
+      background: rgba(17, 24, 39, 0.06);
+      padding: 0.14em 0.32em;
+      border-radius: 8px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 72px;
+    }
+    .toc-inner {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 16px;
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+    }
+    .toc-title {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .toc ol { margin: 0; padding-left: 18px; }
+    .toc a { text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Make anchored headings land nicely below the sticky header */
+    h1, h2, h3 { scroll-margin-top: 92px; }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .paper { padding: 22px 18px; }
+      h1 { font-size: 30px; }
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220;
+        --paper: #0f172a;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --border: rgba(229, 231, 235, 0.14);
+        --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      }
+      .topbar { background: rgba(11, 18, 32, 0.72); }
+      .toc-inner { background: rgba(15, 23, 42, 0.75); }
+      code { background: rgba(229, 231, 235, 0.10); }
+    }
+
+    /* Print like a PDF */
+    @media print {
+      body { background: #fff; }
+      .topbar, .toc { display: none !important; }
+      .wrap { max-width: none; margin: 0; padding: 0; }
+      .paper { box-shadow: none; border: 0; border-radius: 0; padding: 0; }
+      a { text-decoration: none; }
+    }
+  </style>
 </head>
 <body>
-  <h1>PRIVACY NOTICE</h1>
-  <p><strong>Last updated:</strong> January 4, 2026</p>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">FASSS</a>
+      <div class="toplinks">
+        <a href="/terms">Terms</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    This privacy notice for <strong>Aleksandr Fedin</strong> (“we,” “us,” or “our”)
-    describes how and why we may collect, store, use, and/or share (“process”) your information when you use our
-    services (“Services”), such as when you:
-  </p>
+  <div class="wrap">
+    <div class="layout">
+      <aside class="toc">
+        <div class="toc-inner">
+          <p class="toc-title">Contents</p>
+          <ol>
+            <li><a href="#info-collect">What information do we collect?</a></li>
+            <li><a href="#process">How do we process your information?</a></li>
+            <li><a href="#legal-bases">Legal bases for processing</a></li>
+            <li><a href="#share">When and with whom do we share?</a></li>
+            <li><a href="#third-party">Third-party websites</a></li>
+            <li><a href="#cookies">Cookies &amp; tracking</a></li>
+            <li><a href="#international">International transfers</a></li>
+            <li><a href="#retention">Data retention</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#minors">Minors</a></li>
+            <li><a href="#ugc">User-generated content</a></li>
+            <li><a href="#dnt">Do-Not-Track</a></li>
+            <li><a href="#updates">Updates</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#rights">Your rights</a></li>
+          </ol>
+        </div>
+      </aside>
 
-  <ul>
-    <li>Download and use our mobile application <strong>FASSS</strong> (the “App”), or any other application of ours that links to this privacy notice</li>
-    <li>Visit our website at <strong>[https://fass.best]</strong> (if applicable)</li>
-    <li>Contact us for support</li>
-  </ul>
+      <article class="paper">
+        <h1 id="top">Privacy Notice</h1>
+        <p class="meta"><strong>Last updated:</strong> January 4, 2026</p>
 
-  <p>
-    Questions or concerns? If you do not agree with our policies and practices, please do not use our Services.
-    If you still have questions, contact us at <a href="mailto:[support@fass.best]">[support@fass.best]</a>.
-  </p>
+        <p>
+          This privacy notice for <strong>Aleksandr Fedin</strong> (“we,” “us,” or “our”)
+          describes how and why we may collect, store, use, and/or share (“process”) your information when you use our
+          services (“Services”), such as when you:
+        </p>
 
-  <hr />
+        <ul>
+          <li>Download and use our mobile application <strong>FASSS</strong> (the “App”), or any other application of ours that links to this privacy notice</li>
+          <li>Visit our website at <strong><a href="https://fass.best">https://fass.best</a></strong></li>
+          <li>Contact us for support</li>
+        </ul>
 
-  <h2>SUMMARY OF KEY POINTS</h2>
+        <p>
+          Questions or concerns? If you do not agree with our policies and practices, please do not use our Services.
+          If you still have questions, contact us at <a href="mailto:[support@fass.best]">[support@fass.best]</a>.
+        </p>
 
-  <h3>What personal information do we process?</h3>
-  <p>
-    We process (1) content you choose to submit for analysis (e.g., text you paste or screenshots/files you select),
-    and (2) limited technical data (e.g., device/app info and diagnostics).
-  </p>
+        <hr />
 
-  <h3>Do we process any sensitive personal information?</h3>
-  <p>
-    We do not intend to process sensitive personal information. However, what you upload may include sensitive details
-    depending on your content. Please avoid uploading highly sensitive data.
-  </p>
+        <h2 id="summary">Summary of key points</h2>
 
-  <h3>Do we receive any information from third parties?</h3>
-  <p>No.</p>
+        <h3>What personal information do we process?</h3>
+        <p>
+          We process (1) content you choose to submit for analysis (e.g., text you paste or screenshots/files you select),
+          and (2) limited technical data (e.g., device/app info and diagnostics).
+        </p>
 
-  <h3>How do we process your information?</h3>
-  <p>
-    To provide AI-based analysis and reply suggestions, to maintain app reliability and security, and to respond to
-    support requests.
-  </p>
+        <h3>Do we process any sensitive personal information?</h3>
+        <p>
+          We do not intend to process sensitive personal information. However, what you upload may include sensitive details
+          depending on your content. Please avoid uploading highly sensitive data.
+        </p>
 
-  <h3>Do we share personal information?</h3>
-  <p>
-    We may share data with trusted service providers (cloud hosting and AI processing) only to operate the Services.
-  </p>
+        <h3>Do we receive any information from third parties?</h3>
+        <p>No.</p>
 
-  <h3>How do we keep your information safe?</h3>
-  <p>
-    We use reasonable safeguards, but no method is 100% secure.
-  </p>
+        <h3>How do we process your information?</h3>
+        <p>
+          To provide AI-based analysis and reply suggestions, to maintain app reliability and security, and to respond to
+          support requests.
+        </p>
 
-  <h3>What are your rights?</h3>
-  <p>
-    Depending on your location, you may have rights to access or delete your data.
-    Contact us at <a href="mailto:[support@fass.best]">[support@fass.best]</a>.
-  </p>
+        <h3>Do we share personal information?</h3>
+        <p>
+          We may share data with trusted service providers (cloud hosting and AI processing) only to operate the Services.
+        </p>
 
-  <hr />
+        <h3>How do we keep your information safe?</h3>
+        <p>
+          We use reasonable safeguards, but no method is 100% secure.
+        </p>
 
-  <h2 id="toc">TABLE OF CONTENTS</h2>
-  <ol>
-    <li><a href="#info-collect">WHAT INFORMATION DO WE COLLECT?</a></li>
-    <li><a href="#process">HOW DO WE PROCESS YOUR INFORMATION?</a></li>
-    <li><a href="#legal-bases">WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</a></li>
-    <li><a href="#share">WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</a></li>
-    <li><a href="#third-party">WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?</a></li>
-    <li><a href="#cookies">DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</a></li>
-    <li><a href="#international">IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?</a></li>
-    <li><a href="#retention">HOW LONG DO WE KEEP YOUR INFORMATION?</a></li>
-    <li><a href="#security">HOW DO WE KEEP YOUR INFORMATION SAFE?</a></li>
-    <li><a href="#minors">DO WE COLLECT INFORMATION FROM MINORS?</a></li>
-    <li><a href="#ugc">USER-GENERATED CONTENT AND SENSITIVE INFORMATION</a></li>
-    <li><a href="#dnt">CONTROLS FOR DO-NOT-TRACK FEATURES</a></li>
-    <li><a href="#updates">DO WE MAKE UPDATES TO THIS NOTICE?</a></li>
-    <li><a href="#contact">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a></li>
-    <li><a href="#rights">HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a></li>
-  </ol>
+        <h3>What are your rights?</h3>
+        <p>
+          Depending on your location, you may have rights to access or delete your data.
+          Contact us at <a href="mailto:[support@fass.best]">[support@fass.best]</a>.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="info-collect">1. WHAT INFORMATION DO WE COLLECT?</h2>
+        <h2 id="info-collect">1. What information do we collect?</h2>
 
-  <h3>A) Information you provide</h3>
-  <p><em>In Short:</em> We collect information you choose to provide when using the App.</p>
-  <p>This may include:</p>
-  <ul>
-    <li>Text you submit for analysis (e.g., bio, chat text, prompts, language/tone preferences).</li>
-    <li>Images/files you select (e.g., chat screenshots, PDFs, TXT) only if you choose to upload them for analysis.</li>
-    <li>Support messages if you contact us (e.g., email address and the content of your request).</li>
-  </ul>
+        <h3>A) Information you provide</h3>
+        <p><em>In Short:</em> We collect information you choose to provide when using the App.</p>
+        <p>This may include:</p>
+        <ul>
+          <li>Text you submit for analysis (e.g., bio, chat text, prompts, language/tone preferences).</li>
+          <li>Images/files you select (e.g., chat screenshots, PDFs, TXT) only if you choose to upload them for analysis.</li>
+          <li>Support messages if you contact us (e.g., email address and the content of your request).</li>
+        </ul>
 
-  <h3>B) Information collected automatically</h3>
-  <p><em>In Short:</em> Some technical data is collected automatically for security and app reliability.</p>
-  <p>This may include:</p>
-  <ul>
-    <li>Device/App Data (device model, OS version, app version, language, time zone).</li>
-    <li>Identifiers (e.g., an app-generated device identifier such as <code>device_id</code>).</li>
-    <li>Log &amp; Diagnostics Data (crash reports, performance data, error logs, timestamps).</li>
-    <li>Network Data such as IP address (or proxy/server info), typically visible to backend services.</li>
-  </ul>
+        <h3>B) Information collected automatically</h3>
+        <p><em>In Short:</em> Some technical data is collected automatically for security and app reliability.</p>
+        <p>This may include:</p>
+        <ul>
+          <li>Device/App Data (device model, OS version, app version, language, time zone).</li>
+          <li>Identifiers (e.g., an app-generated device identifier such as <code>device_id</code>).</li>
+          <li>Log &amp; Diagnostics Data (crash reports, performance data, error logs, timestamps).</li>
+          <li>Network Data such as IP address (or proxy/server info), typically visible to backend services.</li>
+        </ul>
 
-  <p>
-    We do not intentionally collect precise GPS location. Any location inferred from IP is typically approximate
-    (country/region) and used for security/analytics.
-  </p>
+        <p>
+          We do not intentionally collect precise GPS location. Any location inferred from IP is typically approximate
+          (country/region) and used for security/analytics.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="process">2. HOW DO WE PROCESS YOUR INFORMATION?</h2>
-  <p>We process information to:</p>
-  <ul>
-    <li>Provide the Service (generate AI-based analysis and reply suggestions based on what you submit).</li>
-    <li>Maintain security and prevent abuse (rate limiting, fraud prevention, protecting infrastructure).</li>
-    <li>Improve reliability (debugging, crash diagnostics, performance monitoring).</li>
-    <li>Provide support (answering user requests).</li>
-  </ul>
+        <h2 id="process">2. How do we process your information?</h2>
+        <p>We process information to:</p>
+        <ul>
+          <li>Provide the Service (generate AI-based analysis and reply suggestions based on what you submit).</li>
+          <li>Maintain security and prevent abuse (rate limiting, fraud prevention, protecting infrastructure).</li>
+          <li>Improve reliability (debugging, crash diagnostics, performance monitoring).</li>
+          <li>Provide support (answering user requests).</li>
+        </ul>
 
-  <hr />
+        <hr />
 
-  <h2 id="legal-bases">3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR PERSONAL INFORMATION?</h2>
-  <p>Where applicable (e.g., EEA/UK), we rely on:</p>
-  <ul>
-    <li>Consent (when you choose to upload/submit content for analysis).</li>
-    <li>Performance of a contract (to deliver requested features).</li>
-    <li>Legitimate interests (security, service improvement, preventing abuse).</li>
-    <li>Legal obligations (if required by law).</li>
-  </ul>
+        <h2 id="legal-bases">3. What legal bases do we rely on to process your personal information?</h2>
+        <p>Where applicable (e.g., EEA/UK), we rely on:</p>
+        <ul>
+          <li>Consent (when you choose to upload/submit content for analysis).</li>
+          <li>Performance of a contract (to deliver requested features).</li>
+          <li>Legitimate interests (security, service improvement, preventing abuse).</li>
+          <li>Legal obligations (if required by law).</li>
+        </ul>
 
-  <hr />
+        <hr />
 
-  <h2 id="share">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</h2>
-  <p>We may share information with:</p>
-  <ul>
-    <li>Cloud hosting and storage providers (to run backend infrastructure).</li>
-    <li>AI processing providers (to generate analysis and reply suggestions).</li>
-    <li>Diagnostics providers (crash/performance reporting), if enabled.</li>
-  </ul>
+        <h2 id="share">4. When and with whom do we share your personal information?</h2>
+        <p>We may share information with:</p>
+        <ul>
+          <li>Cloud hosting and storage providers (to run backend infrastructure).</li>
+          <li>AI processing providers (to generate analysis and reply suggestions).</li>
+          <li>Diagnostics providers (crash/performance reporting), if enabled.</li>
+        </ul>
 
-  <p>
-    We share only what is necessary to operate the Service. We do not sell your personal information and we do not
-    share it for third-party advertising.
-  </p>
+        <p>
+          We share only what is necessary to operate the Service. We do not sell your personal information and we do not
+          share it for third-party advertising.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="third-party">5. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?</h2>
-  <p>
-    The App may link to third-party websites (e.g., Terms/Privacy pages). We are not responsible for third-party
-    privacy practices.
-  </p>
+        <h2 id="third-party">5. What is our stance on third-party websites?</h2>
+        <p>
+          The App may link to third-party websites (e.g., Terms/Privacy pages). We are not responsible for third-party
+          privacy practices.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="cookies">6. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</h2>
-  <p>
-    If you use our website, it may use cookies for basic functionality and analytics. The mobile App typically does
-    not use browser cookies; it relies on device/app diagnostics and logs.
-  </p>
+        <h2 id="cookies">6. Do we use cookies and other tracking technologies?</h2>
+        <p>
+          If you use our website, it may use cookies for basic functionality and analytics. The mobile App typically does
+          not use browser cookies; it relies on device/app diagnostics and logs.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="international">7. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?</h2>
-  <p>
-    Your information may be processed in countries where our servers or service providers operate. We take reasonable
-    steps to protect data during transfers.
-  </p>
+        <h2 id="international">7. Is your information transferred internationally?</h2>
+        <p>
+          Your information may be processed in countries where our servers or service providers operate. We take reasonable
+          steps to protect data during transfers.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="retention">8. HOW LONG DO WE KEEP YOUR INFORMATION?</h2>
-  <p><em>In Short:</em> We keep data only as long as needed.</p>
+        <h2 id="retention">8. How long do we keep your information?</h2>
+        <p><em>In Short:</em> We keep data only as long as needed.</p>
 
-  <h3>Uploaded content for analysis (screenshots/files/text)</h3>
-  <ul>
-    <li>Not stored long-term. We process it to produce results and then delete it from our servers <strong>immediately</strong>.</li>
-  </ul>
+        <h3>Uploaded content for analysis (screenshots/files/text)</h3>
+        <ul>
+          <li>Not stored long-term. We process it to produce results and then delete it from our servers <strong>immediately</strong>.</li>
+        </ul>
 
-  <h3>Generated results</h3>
-  <ul>
-    <li>Stored locally on your device (e.g., in on-device storage) unless you explicitly send them again.</li>
-  </ul>
+        <h3>Generated results</h3>
+        <ul>
+          <li>Stored locally on your device (e.g., in on-device storage) unless you explicitly send them again.</li>
+        </ul>
 
-  <h3>Logs/diagnostics</h3>
-  <ul>
-    <li>Retained for <strong>[e.g., 30 days]</strong> for security and reliability.</li>
-  </ul>
+        <h3>Logs/diagnostics</h3>
+        <ul>
+          <li>Retained for <strong>[e.g., 30 days]</strong> for security and reliability.</li>
+        </ul>
 
-  <p>
-    <em>Apple-friendly option for v1:</em> delete uploads immediately after processing (or within 24 hours).
-  </p>
+        <p>
+          <em>Apple-friendly option for v1:</em> delete uploads immediately after processing (or within 24 hours).
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="security">9. HOW DO WE KEEP YOUR INFORMATION SAFE?</h2>
-  <p>
-    We use reasonable safeguards such as encryption in transit (HTTPS), access controls, and monitoring. No method is
-    100% secure.
-  </p>
+        <h2 id="security">9. How do we keep your information safe?</h2>
+        <p>
+          We use reasonable safeguards such as encryption in transit (HTTPS), access controls, and monitoring. No method is
+          100% secure.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="minors">10. DO WE COLLECT INFORMATION FROM MINORS?</h2>
-  <p>
-    The Services are not directed to children under 13 (or the minimum age required by local law). We do not knowingly
-    collect personal data from children.
-  </p>
+        <h2 id="minors">10. Do we collect information from minors?</h2>
+        <p>
+          The Services are not directed to children under 13 (or the minimum age required by local law). We do not knowingly
+          collect personal data from children.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="ugc">11. USER-GENERATED CONTENT AND SENSITIVE INFORMATION</h2>
-  <p>
-    Your uploaded chats/screenshots may contain personal data about you or others. Please do not upload:
-  </p>
-  <ul>
-    <li>passwords, authentication codes</li>
-    <li>government IDs</li>
-    <li>full payment card details</li>
-    <li>medical records or other highly sensitive information</li>
-  </ul>
-  <p>
-    If you upload third-party data, you confirm you have the right to share it for analysis.
-  </p>
+        <h2 id="ugc">11. User-generated content and sensitive information</h2>
+        <p>
+          Your uploaded chats/screenshots may contain personal data about you or others. Please do not upload:
+        </p>
+        <ul>
+          <li>passwords, authentication codes</li>
+          <li>government IDs</li>
+          <li>full payment card details</li>
+          <li>medical records or other highly sensitive information</li>
+        </ul>
+        <p>
+          If you upload third-party data, you confirm you have the right to share it for analysis.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="dnt">12. CONTROLS FOR DO-NOT-TRACK FEATURES</h2>
-  <p>
-    There is no consistent industry standard for Do-Not-Track signals. Where applicable on the website, we follow
-    relevant rules, but the App does not respond to browser DNT signals.
-  </p>
+        <h2 id="dnt">12. Controls for Do-Not-Track features</h2>
+        <p>
+          There is no consistent industry standard for Do-Not-Track signals. Where applicable on the website, we follow
+          relevant rules, but the App does not respond to browser DNT signals.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="updates">13. DO WE MAKE UPDATES TO THIS NOTICE?</h2>
-  <p>
-    Yes. We may update this notice from time to time and will update the “Last updated” date.
-  </p>
+        <h2 id="updates">13. Do we make updates to this notice?</h2>
+        <p>
+          Yes. We may update this notice from time to time and will update the “Last updated” date.
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="contact">14. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h2>
-  <p>
-    Email: <a href="mailto:[support@fass.best]">[support@fass.best]</a><br />
-    Developer: <strong>Aleksandr Fedin</strong><br />
-  </p>
+        <h2 id="contact">14. How can you contact us about this notice?</h2>
+        <p>
+          Email: <a href="mailto:[support@fass.best]">[support@fass.best]</a><br />
+          Developer: <strong>Aleksandr Fedin</strong><br />
+        </p>
 
-  <hr />
+        <hr />
 
-  <h2 id="rights">15. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</h2>
-  <p>
-    You can request access or deletion by emailing <a href="mailto:[support@fass.best]">[support@fass.best]</a>.
-    To help us locate server-side data (if any), include:
-  </p>
+        <h2 id="rights">15. How can you review, update, or delete the data we collect from you?</h2>
+        <p>
+          You can request access or deletion by emailing <a href="mailto:[support@fass.best]">[support@fass.best]</a>.
+          To help us locate server-side data (if any), include:
+        </p>
 
-  <ul>
-    <li>FASSS</li>
-    <li>approximate upload time</li>
-    <li>your <code>device_id</code> (if shown in Settings → About)</li>
-  </ul>
+        <ul>
+          <li>FASSS</li>
+          <li>approximate upload time</li>
+          <li>your <code>device_id</code> (if shown in Settings → About)</li>
+        </ul>
+
+        <p class="footer">
+          Tip: you can print or save this page as PDF from your browser (it’s styled to print cleanly).
+        </p>
+      </article>
+    </div>
+  </div>
 </body>
 </html>
